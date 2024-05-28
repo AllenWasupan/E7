@@ -1,7 +1,8 @@
 """
 Created on Sun Apr 10 2022
+Codebased from Zalkyrie
+@author: AllenWasupan
 
-@author: Zalkyrie
 """
 
 from pyautogui import *
@@ -10,15 +11,11 @@ import time
 import datetime
 import keyboard
 import random
-import win32api, win32con
 import sys
 
 ############### HELPER FUNCTIONS ###############
 def click(x,y):
-    win32api.SetCursorPos((x,y))
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-    time.sleep(0.4)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
+    pyautogui.click(x,y)
 
 def buy(bookmark):
     bought = False
@@ -27,9 +24,9 @@ def buy(bookmark):
 
     while((pos == None) and (time.time()< (buy_start + timeout))):
         if (bookmark == 'covenant'):
-            pos = pyautogui.locateOnScreen('covenant.png',confidence=0.8)
+            pos = pyautogui.locateOnScreen('assets/covenant.png',confidence=0.8)
         else:
-            pos = pyautogui.locateOnScreen('mystic.png',confidence=0.8)
+            pos = pyautogui.locateOnScreen('assets/mystic.png',confidence=0.8)
 
     pos_point = pyautogui.center(pos)
     #click buy
@@ -42,9 +39,9 @@ def buy(bookmark):
     Buy_button_pos = None
     while(time.time() < (timeout_start + timeout)):
         if (bookmark == 'covenant'):
-            Buy_button_pos=pyautogui.locateOnScreen('Buy_button_Covenant.png', confidence=0.6)
+            Buy_button_pos=pyautogui.locateOnScreen('assets/Buy_button_Covenant.png', confidence=0.6)
         else:
-            Buy_button_pos=pyautogui.locateOnScreen('Buy_button_Mystic.png', confidence=0.6)
+            Buy_button_pos=pyautogui.locateOnScreen('assets/Buy_button_Mystic.png', confidence=0.6)
 
         if (Buy_button_pos != None):
             Buy_button_point=pyautogui.center(Buy_button_pos)
