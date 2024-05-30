@@ -92,8 +92,6 @@ timeout = 5 #if program hangs for 5 seconds, terminate
 print("Starting Program")
 #Locate refresh button
 RB_pos=pyautogui.locateOnScreen('assets/shoprefresh/refresh_button.png',confidence=0.7)
-print(RB_pos)
-print("Found refresh")
 #If refresh button is not found, you may need to replace the images with your own
 if (RB_pos == None):
     print("Error: Refresh button not found.")
