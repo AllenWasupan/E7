@@ -15,7 +15,9 @@ def click(image):
     pyautogui.click(x,y)
 
 def down(anchor):
-    image=pyautogui.locateOnScreen(anchor,confidence=0.8)
+    image=check(anchor)
+    if (image == None):
+        quit
     #Puts the cursor to the left of the highest buy button
     x = image.left-image.width
     y = image.top+image.height/2
