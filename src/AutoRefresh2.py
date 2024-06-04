@@ -15,7 +15,11 @@ def buy(item):
     pos = None
     buy_start = time.time()
     buy_pos = check('assets/shoprefresh/buy_button.png')
+    print('Buying')
+    print(item.left)
+    print(item.top)
     print(buy_pos.left+buy_pos.width-item.left)
+    print(item.height)
     #Searches the area right of the mark for the buy
     buy_button = pyautogui.locateOnScreen('assets/shoprefresh/buy_button.png',region=(item.left,item.top,buy_pos.left+buy_pos.width-item.left,item.height))
 
@@ -37,7 +41,7 @@ timeout = 5 #if program hangs for 5 seconds, terminate
 print("Starting Program")
 
 #Locate refresh button
-refresh = check('assets/shoprefresh.refresh_button.png')
+refresh = check('assets/shoprefresh/refresh_button.png')
 if (refresh == None):
     quit
 
@@ -88,7 +92,7 @@ while ((exit_flag == 0) and (time.time() < start_time+run_timeout)):
             break
         if (confirm_pos != None):
             #Confirm refresh
-            click(confirm_pos)
+            #click(confirm_pos)
             refresh_count=refresh_count+1
             break
     if exit_flag == 1:
